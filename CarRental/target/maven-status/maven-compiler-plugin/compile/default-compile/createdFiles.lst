@@ -1,0 +1,6 @@
+net/opentrends/carrental/model/Brand.class
+net/opentrends/carrental/validator/LoginValidator.class
+net/opentrends/carrental/model/Model.class
+net/opentrends/carrental/service/LoginAuthentication.class
+net/opentrends/carrental/controller/LoginController.class
+net/opentrends/carrental/model/Login.class
