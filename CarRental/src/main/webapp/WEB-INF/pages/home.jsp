@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<div align="center">
+<h3 align="center">Welcome</h3>
+<button><a href="newbrand.htm">Add New Brand</a></button>
+<button><a href="newmodel.htm">Add New Vehicle</a></button>
+<button><a href="newcustomer.htm">Add New Customer</a></button>
+<button><a>Book a Vehicle</a></button>
+<button><a href="search.htm">Search Availablity</a></button>
+</div>
 </body>
 </html>

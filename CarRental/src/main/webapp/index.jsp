@@ -8,7 +8,7 @@
 <c:set var="context" value="${pageContext.request.contextPath }"/>
 <script type="text/javascript">
 function loadPage(){
-	location.href="${context}/login";
+	location.href="${context}/login.htm";
 }
 </script>
 <title>Index</title>

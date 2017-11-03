@@ -12,6 +12,12 @@ color:red;
 font-style: italic;
 color: red;
 }
+.head1{
+background-color: #110235;
+font-style:bold;
+color: white;
+text-align: center;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
@@ -19,6 +25,7 @@ color: red;
 <body>
 <form:form method="post" action="validatelogin" commandName="loginCommand">
 <table align="center">
+<tr><td colspan="2" class="head1">LOGIN</td></tr>
 <tr>
 <th>Username:</th>
 <td><form:input path="username"/>
@@ -31,8 +38,9 @@ color: red;
 <form:errors path="pwd" cssClass="error"></form:errors>
 </td>
 </tr>
+<tr><td colspan="2" ><input type="submit" value="login" style="align=right;"></td></tr>
 </table>
-<input type="submit" value="login">
+
 </form:form>
  <table align="center" class="messagestyle">
                 <tr>

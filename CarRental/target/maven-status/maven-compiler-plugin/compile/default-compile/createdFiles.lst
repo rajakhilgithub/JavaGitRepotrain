@@ -1,6 +1,13 @@
-net/opentrends/carrental/model/Brand.class
-net/opentrends/carrental/validator/LoginValidator.class
 net/opentrends/carrental/model/Model.class
 net/opentrends/carrental/service/LoginAuthentication.class
-net/opentrends/carrental/controller/LoginController.class
+net/opentrends/carrental/DAOClasses/BrandDAO.class
+net/opentrends/carrental/model/Rent.class
+net/opentrends/carrental/validator/LoginValidator.class
 net/opentrends/carrental/model/Login.class
+net/opentrends/carrental/validator/NewBrandValidator.class
+net/opentrends/carrental/DAOServices/BrandDAOService.class
+net/opentrends/carrental/controller/LoginController.class
+net/opentrends/carrental/model/Brand.class
+net/opentrends/carrental/DAOClasses/BrandDAOImpl.class
+net/opentrends/carrental/DAOServices/BrandDAOServiceImpl.class
+net/opentrends/carrental/controller/HomeController.class
