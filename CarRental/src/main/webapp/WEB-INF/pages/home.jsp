@@ -9,11 +9,16 @@
 <body>
 <div align="center">
 <h3 align="center">Welcome</h3>
-<button><a href="newbrand.htm">Add New Brand</a></button>
-<button><a href="newmodel.htm">Add New Vehicle</a></button>
-<button><a href="newcustomer.htm">Add New Customer</a></button>
-<button><a>Book a Vehicle</a></button>
-<button><a href="search.htm">Search Availablity</a></button>
+<button><a href="home">Home</a></button>
+<button><a href="newbrand">Add New Brand</a></button>
+<button><a href="newmodel">Add New Vehicle</a></button>
+<button><a href="newcustomer">Add New Customer</a></button>
+
+<button><a href="search">Search Availablity</a></button>
+<button><a href="logout">Logout</a></button>
+</div>
+<div>
+
 </div>
 </body>
 </html>

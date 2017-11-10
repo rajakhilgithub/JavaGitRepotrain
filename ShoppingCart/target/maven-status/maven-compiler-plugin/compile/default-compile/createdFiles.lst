@@ -1,0 +1,6 @@
+net/opentrends/shoppingcart/dto/Login.class
+net/opentrends/shoppingcart/model/Seller.class
+net/opentrends/shoppingcart/controller/loginController.class
+net/opentrends/shoppingcart/model/Product.class
+net/opentrends/shoppingcart/model/Buyer.class
+net/opentrends/shoppingcart/model/Orders.class

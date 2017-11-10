@@ -1,0 +1,79 @@
+@charset "UTF-8";
+.button {
+     /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonBlue {background-color: #48AFEF;} 
+.buttonRed{background-color: #B03727;}
+.buttonViolet{background-color: #9B88CA}
+.buttonGrey {background-color: #e7e7e7; color: black;}
+.error {
+	font-style: italic;
+	color: red
+}
+.buttonMedium {
+     /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+#buyer,#seller{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#buyer td, #buyer th,#seller td,#seller th {
+    border: 1px ;
+    padding: 8px;
+}
+
+#buyer tr:nth-child(even),#seller tr:nth-child(even){background-color: #f2f2f2;}
+
+#buyer tr:hover,#seller tr:hover  {background-color: #ddd;}
+
+#buyer th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2F0132;
+    color: white;
+}
+
+#seller th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #013206;
+    color: white;
+}
+#login th,#login td{
+	border: 1px ;
+    padding: 4px;
+}
+#login th{
+	background-color:#2F0132; 
+	color: white;
+}
+#login td{
+	background-color: ##2F0132;
+}
+#login{
+	 width:25%;
+}

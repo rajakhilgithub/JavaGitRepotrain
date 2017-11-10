@@ -22,12 +22,25 @@ color: red;
 <title>Add New Vehicle</title>
 </head>
 <body>
+<div align="center"><jsp:include page="home.jsp"></jsp:include></div>
+<br><br>
 <div align="center">
 <form:form method="POST" commandName="modelnew" action="validatevehicle.htm">
 <table>
+<div>
 <tr><th colspan="2" align="center">Add New Vehicle</th></tr>
 <tr><td colspan="2">
-
+</div>
+<c:choose>
+	<c:when test="${not empty successmessage }">
+		
+            <tr>
+                <td class="messagestyle">${successmessage}</td>
+            </tr>
+        
+	</c:when>
+		<c:otherwise>
+<div>
 <form:select path="brandName">
 <form:option value="" label="---Select Brand Name---"></form:option>
 <c:forEach var="brand" items="${namelist}">
@@ -38,21 +51,23 @@ color: red;
 </td></tr>
 <tr><td colspan="2"><form:input path="modelName" placeholder="Model Name"/>
 <form:errors path="modelName" cssClass="error"></form:errors></td></tr>
+<tr><td colspan="2"><form:label path="stock">Stock</form:label>
 <tr><td colspan="2"><form:input path="stock" placeholder="Stock"/>
 <form:errors path="stock" cssClass="error"></form:errors></td></tr>
+<tr><td colspan="2"><form:label path="dailyRent">Daily Rent</form:label>
 <tr><td colspan="2"><form:input path="dailyRent" placeholder="Daily Rent"/>
 <form:errors path="dailyRent" cssClass="error"></form:errors></td></tr>
+</div>
+<div>
 <tr><td colspan="2" align="right"><input type="submit" value="Add">
 </td></tr>
+</div>
 </table>
-
+</c:otherwise>
+</c:choose>
 </form:form>
 
 </div>
-<table align="center" class="messagestyle">
-                <tr>
-                    <td >${successmessage}</td>
-                </tr>
-            </table>
+
 </body>
 </html>

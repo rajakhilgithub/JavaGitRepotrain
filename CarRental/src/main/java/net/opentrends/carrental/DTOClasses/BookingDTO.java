@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BookingDTO implements Serializable {
-	private int brandId;
+	private Integer brandId;
 	private int bookingId;
-	private int modelId;
+	private Integer modelId;
 	private int customerId;
 	private String fDate;
 	private String tDate;
 	private Date fromDate;
 	private Date toDate;
 	
-	public int getBrandId() {
+	public Integer getBrandId() {
 		return brandId;
 	}
-	public void setBrandId(int brandId) {
+	public void setBrandId(Integer brandId) {
 		this.brandId = brandId;
 	}
 	public Date getFromDate() {
@@ -43,10 +43,10 @@ public class BookingDTO implements Serializable {
 	public void settDate(String tDate) {
 		this.tDate = tDate;
 	}
-	public int getModelId() {
+	public Integer getModelId() {
 		return modelId;
 	}
-	public void setModelId(int modelId) {
+	public void setModelId(Integer modelId) {
 		this.modelId = modelId;
 	}
 	public int getCustomerId() {

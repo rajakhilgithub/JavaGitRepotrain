@@ -26,22 +26,22 @@ ModelDAOService modelService;
 		// TODO Auto-generated method stub
 		ModelFormDTO modelDTO=(ModelFormDTO)arg0;
 		if(modelDTO.getBrandName().isEmpty()) {
-			error.rejectValue("brandName", "brand.nameempty", "Select a Brandname");
+			error.rejectValue("brandName", "brand.nameselect.empty", "Select a Brandname");
 		}
 		if(modelDTO.getModelName().isEmpty()) {
-			error.rejectValue("modelName", "model.nameempty", "Enter a Model Name");
+			error.rejectValue("modelName", "model.name.empty", "Enter a Model Name");
 		}
 		if(modelDTO.getStock()==0) {
-			error.rejectValue("stock", "stock.empty", "Enter Stock");
+			error.rejectValue("stock", "model.stock.empty", "Enter Stock");
 		}
 		if(modelDTO.getDailyRent()==0) {
-			error.rejectValue("dailyRent", "rent.empty", "Enter Daily Rent");
+			error.rejectValue("dailyRent", "model.rent.empty", "Enter Daily Rent");
 		}
 		List<Model> models=modelService.listAll();
 		for(Iterator<Model> i=models.iterator();i.hasNext();) {
 			Model model=i.next();
-			if(model.getBrand().getName().equalsIgnoreCase(modelDTO.getBrandName())&&model.getBrand().getName().equalsIgnoreCase(modelDTO.getBrandName())) {
-				error.rejectValue("brandName", "brand.modelexist","Brand Model combination Exists");
+			if(model.getBrand().getName().equalsIgnoreCase(modelDTO.getBrandName())&&model.getModelNo().equalsIgnoreCase(modelDTO.getModelName())) {
+				error.rejectValue("brandName", "model.brand.modelexist","Brand Model combination Exists");
 			}
 		}
 	}

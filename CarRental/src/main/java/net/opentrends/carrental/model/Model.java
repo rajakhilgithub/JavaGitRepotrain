@@ -26,7 +26,7 @@ public class Model implements Serializable{
 	@Column(name="Model_No")
 	private String modelNo;
 	@Column(name="Stock")
-	private int stock;
+	private Integer stock;
 	
 	@ManyToOne
 	@JoinColumn(name="Brand_ID")
@@ -57,10 +57,10 @@ public class Model implements Serializable{
 	public void setModelNo(String modelNo) {
 		this.modelNo = modelNo;
 	}
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 	public Brand getBrand() {

@@ -1,5 +1,8 @@
 package net.opentrends.carrental.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +24,12 @@ private LoginValidator loginvalidate;
 @Autowired
 private LoginAuthentication authenticate;
 @RequestMapping(value="/login")
-public ModelAndView login() {
+public ModelAndView login(HttpSession httpSession) {
+	httpSession.setAttribute("user", "");
 	return new ModelAndView("login","loginCommand",new Login());
 }
 @RequestMapping(value="/validatelogin",method=RequestMethod.POST)
-public String loginValidate(@ModelAttribute("loginCommand")@Validated Login login,BindingResult errorResult,Model model) {
+public String loginValidate(@ModelAttribute("loginCommand")@Validated Login login,BindingResult errorResult,Model model,HttpSession httpSession) {
 	loginvalidate.validate(login, errorResult);
 	if(errorResult.hasErrors()) {
 		return "login";
@@ -33,11 +37,19 @@ public String loginValidate(@ModelAttribute("loginCommand")@Validated Login logi
 	else {
 		boolean authResult=authenticate.authenticate(login.getUsername(), login.getPwd());
 		if(authResult) {
+			httpSession.setAttribute("user", login.getUsername());
 			return "home";
 		}else {
 			model.addAttribute("message", "invalid username or password");
 			return "login";
 		}
 	}
+}
+@RequestMapping(value="/logout")
+public ModelAndView logout(HttpSession httpSession) {
+	System.out.println("logged out");
+	httpSession.setAttribute("user","");
+
+	return new ModelAndView("login","loginCommand",new Login());
 }
 }

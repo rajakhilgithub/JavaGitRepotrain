@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -149,11 +150,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/validateSearch",method=RequestMethod.POST)
-	String newSearchValidation(@ModelAttribute("search")@Validated BookingDTO bookingDto,BindingResult result,Model model,ModelMap modelMap) {
-		String checkmessage=null;
+	String newSearchValidation(@ModelAttribute("search") BookingDTO bookingDto,BindingResult result,ModelMap modelMap) {
 		searchValidate.validate(bookingDto, result);
 		if(result.hasErrors()) {
-			model.addAttribute("namelist", brandService.listAll());
+			modelMap.put("namelist", brandService.listAll());
 			return "search";
 		}
 		else {
@@ -161,17 +161,19 @@ public class HomeController {
 			int available=bookingservice.findAvailable(bookingDto);
 			String availMessage="";
 			if(available==0) {
-			availMessage="<p class=\"error\">No vehicles of this model available<p>";
+				availMessage="<p class=\"error\">No vehicles of this model available<p>";
 			}else {
 				availMessage="<p class=\"success\">"+available+" Vehicles available";
-				model.addAttribute("cutomerList",customerAdd.listAll());
-				checkmessage="success";
+				modelMap.put("cutomerList",customerAdd.listAll());
+				modelMap.put("checkMessage", "success");
 			}
-			model.addAttribute("availablityMessage", availMessage);
-			model.addAttribute("namelist", brandService.listAll());
-			model.addAttribute("checkMessage", checkmessage);
+			modelMap.put("availablityMessage", availMessage);
 			System.out.println(bookingDto.getFromDate().toString()+"--to--"+bookingDto.getToDate().toString());
-			modelMap.put("bookingDto", bookingDto);
+			modelMap.put("namelist", brandService.listAll());
+			if(bookingDto.getBrandId() != null) {
+				List<ModelDTO> modelList=modelService.getModelListByBranchId(bookingDto.getBrandId());
+				modelMap.put("models", modelList);
+			}
 			return "search";
 		}
 		
@@ -180,20 +182,23 @@ public class HomeController {
 	//Booking
 	
 	@RequestMapping(value="/validateBooking")
-	String newBookingForm(@ModelAttribute("search")@Validated BookingDTO bookingDto,BindingResult result,Model model,ModelMap modelMap) {
+	String newBookingForm(@ModelAttribute("search") BookingDTO bookingDto,BindingResult result, ModelMap modelMap) {
 		System.out.println(bookingDto.getModelId()+"---"+bookingDto.getBrandId()+"---"+bookingDto.getCustomerId()+"----"+bookingDto.getFromDate()+"---"+bookingDto.getfDate());
 		bookingValidator.validate(bookingDto, result);
 		if(result.hasErrors()) {
-		model.addAttribute("cutomerList",customerAdd.listAll());
-		model.addAttribute("checkMessage", "success");
-		modelMap.put("bookingDto", bookingDto);
+			modelMap.put("cutomerList",customerAdd.listAll());
+			modelMap.put("namelist", brandService.listAll());
+			if(bookingDto.getBrandId() != null) {
+				List<ModelDTO> modelList=modelService.getModelListByBranchId(bookingDto.getBrandId());
+				modelMap.put("models", modelList);
+			}
+			modelMap.put("checkMessage", "success");
 		return "search";
 		}
 		else {
 			bookingDto=bookingservice.setDates(bookingDto);	
 			bookingservice.save(bookingDto);
-			model.addAttribute("successmessage", "Booking Succesfull");
-			model.addAttribute("cutomerList",customerAdd.listAll());
+			modelMap.put("successmessage", "Booking Succesfull");
 			return "search";
 		}
 		

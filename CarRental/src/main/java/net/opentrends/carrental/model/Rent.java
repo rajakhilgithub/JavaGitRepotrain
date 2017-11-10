@@ -16,22 +16,22 @@ public class Rent {
 @Column(name="Rent_ID")
 int rentID;
 @Column(name="Daily_Rent")
-int dailyRent;
+Integer dailyRent;
 @OneToOne
 @JoinColumn(name="Model_ID")
 Model model;
 public Rent() {}
-public Rent(int dailyRent) {
+public Rent(Integer dailyRent) {
 	super();
 	this.dailyRent = dailyRent;
 }
 public int getRentID() {
 	return rentID;
 }
-public void setRentID(int rentID) {
+public void setRentID(Integer rentID) {
 	this.rentID = rentID;
 }
-public int getDailyRent() {
+public Integer getDailyRent() {
 	return dailyRent;
 }
 public void setDailyRent(int dailyRent) {

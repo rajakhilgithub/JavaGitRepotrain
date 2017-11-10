@@ -19,17 +19,17 @@ public class NewSearchValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		BookingDTO bookingDto=(BookingDTO) target;
-		if(bookingDto.getBrandId()==0) {
-			errors.rejectValue("brandId", "mbrand.empty", "select a brand");
+		if(bookingDto.getBrandId()== null) {
+			errors.rejectValue("brandId", "brand.nameselect.empty", "select a brand");
 		}
-		if(bookingDto.getModelId()==0) {
-			errors.rejectValue("modelId", "model.empty", "select a model");
+		if(bookingDto.getModelId()== null) {
+			errors.rejectValue("modelId", "model.nameselect.empty", "select a model");
 		}
 		if(bookingDto.getfDate().isEmpty()) {
-			errors.rejectValue("fDate", "fromDate.empty", "Enter Starting Date");
+			errors.rejectValue("fDate", "search.fromDate.empty", "Enter Starting Date");
 		}
 		if(bookingDto.gettDate().isEmpty()) {
-			errors.rejectValue("tDate", "toDate.empty", "Enter Ending Date");
+			errors.rejectValue("tDate", "search.toDate.empty", "Enter Ending Date");
 		}
 	}
 
