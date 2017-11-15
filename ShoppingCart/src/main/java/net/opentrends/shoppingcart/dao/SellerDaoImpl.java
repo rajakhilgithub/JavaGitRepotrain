@@ -58,7 +58,7 @@ public class SellerDaoImpl implements SellerDao {
 	@Override
 	public SellerDto getSellerByEmail(String email) {
 		Criteria criteria = sessionFactory.openSession().createCriteria(Seller.class);
-		criteria.add(Restrictions.like("emailId", email));
+		criteria.add(Restrictions.eq("emailId", email));
 		Seller seller = (Seller) criteria.uniqueResult();
 		SellerDto sellerDto = new SellerDto();
 		BeanUtils.copyProperties(seller, sellerDto);

@@ -52,7 +52,7 @@ public class BuyerDaoImpl implements BuyerDao {
 	@Override
 	public BuyerDto getBuyerByEmail(String email) {
 		Criteria criteria = sessionFactory.openSession().createCriteria(Buyer.class);
-		criteria.add(Restrictions.like("emailId", email));
+		criteria.add(Restrictions.eq("emailId", email));
 		Buyer buyer = (Buyer) criteria.uniqueResult();
 		BuyerDto buyerDto = new BuyerDto();
 		BeanUtils.copyProperties(buyer, buyerDto);
