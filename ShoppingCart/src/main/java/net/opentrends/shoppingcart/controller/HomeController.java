@@ -76,7 +76,12 @@ public class HomeController {
 				
 				productDto.setSellerId(sellerDto.getSellerId());
 				productService.saveOrUpdate(productDto);
+				if(productDto.getProductIdentity()==null) {
 				model.addAttribute("successMessage", "Product Added Successfully");
+				}else {
+					model.addAttribute("successMessage", "Product Edited Successfully");
+
+				}
 			} else {
 				model.addAttribute("productExistMessage", "Product Already Exist");
 			}
